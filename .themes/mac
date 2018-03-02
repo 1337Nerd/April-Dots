@@ -1,0 +1,5 @@
+xrdb -I$HOME ~/.Xresources
+feh --bg-fill ~/Downloads/macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg
+pkill polybar; polybar main &
+cp ~/.themes/macterm ~/.themes/term
+cp ~/index.html ~/.themes/startpage.html
