@@ -1,0 +1,392 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+toolbarbutton#alltabs-button {
+	-moz-binding: url("userChrome.xml#js");
+}
+
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+/*This style will make your browser similar to Safari.  Currently tested on MacOS Sierra and Linux on Nightly*/
+
+/*tabs on bottom*/
+#TabsToolbar {
+  -moz-box-ordinal-group: 3;
+}
+#nav-bar{
+  border-top-width: 0px !important;
+}
+#TabsToolbar .tabbrowser-tabs {
+  height: 18px !important;
+  border-bottom: 1px solid #B1B1B1 !important;
+}
+
+/*tab line hidden*/
+.tab-line {
+  display: none !important;
+}
+
+/*Bookmarks Bar fix*/
+#PersonalToolbar {
+  -moz-box-ordinal-group: 2;
+  background: rgb(220, 220, 220) !important;
+  border-bottom: 1px solid #B1B1B1 !important;
+}
+
+/*Remove extra tab bar space*/
+#TabsToolbar {
+  padding-inline-start: 0px !important;
+  margin-bottom: none !important;
+}
+
+.titlebar-placeholder {
+  display: none;
+}
+
+/*full-width tabs*/
+#TabsToolbar .tabbrowser-tab[fadein]:not([pinned]) {
+  flex-grow: 1 !important;
+  min-width: 11em !important;
+  max-width: 100% !important;
+}
+
+#TabsToolbar {
+  box-shadow: inset 0px 1px 0px 0px rgb(162,160,162), inset 0px -1px 0px 0px rgb(162,160,162) !important;
+  margin-bottom: 0px !important;
+  margin-left: 0px !important;
+  margin-right: -1px !important;
+  background: linear-gradient(to bottom, rgb(192,190,192),rgb(187,185,187)) !important;
+}
+
+/*Hide and show close tab button*/
+#TabsToolbar .tab-close-button {
+  -moz-box-ordinal-group: 1 !important;
+  margin-left: -5.5px !important;
+  border-radius: 2px !important;
+  transition: opacity 200ms !important;
+    /* small x */
+  list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1"/>\</svg>') !important;
+}
+
+@media (max-resolution: 1.9dppx) {
+  #TabsToolbar .tab-close-button {
+    list-style-image: url('data:image/svg+xml;utf8,\<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16">\<line x1="4.5" y1="4.5" x2="11.5" y2="11.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\<line x1="4.5" y1="11.5" x2="11.5" y2="4.5" stroke="rgb(84,82,84)" stroke-width="1.5"/>\</svg>') !important;
+  }
+}
+
+#TabsToolbar tab:not(:hover) .tab-close-button {
+  opacity: 0 !important;
+}
+
+#TabsToolbar tab:hover .tab-close-button {
+  opacity: 1 !important;
+}
+
+#TabsToolbar tab .close-icon {
+  -moz-image-region: unset !important;
+}
+
+#TabsToolbar tab .close-icon:hover {
+  -moz-image-region: unset !important;
+  background-color: rgba(0,0,0,0.1) !important;
+  background-clip: padding-box !important;
+}
+
+#TabsToolbar tab .close-icon:hover:active {
+  background-color: rgba(0,0,0,0.15) !important;
+}
+
+/*Heights*/
+
+/*
+ * Change the last padding value to 5px for Windows, Linux, or if 
+ * you're using the titlebar
+ */
+#nav-bar {
+  height: 38px !important;
+  padding: 0px 5px !important;
+}
+#tabbrowser-tabs {
+  margin-left: 0px !important;
+  height: 24px !important;
+}
+#TabsToolbar .tab-content > * {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+
+/*Colors*/
+#nav-bar {
+  background: linear-gradient(rgb(230, 230, 230), rgb(220, 220, 220)) !important;
+  border-bottom: 1px solid #B1B1B1 !important;
+}
+#TabsToolbar {
+  background: #BCBCBC !important;
+}
+.tab-background[selected="true"] {
+    background-attachment: none !important;
+    background-color: rgb(220, 220, 220) !important;
+    background-image: none !important;
+}
+#urlbar {
+  background: #FAFAFA !important;
+  border: 1px solid rgba(0,0,0,0.5);
+}
+
+/*Hide Favicons, center text*/
+.tabbrowser-tabs .tab-icon-image {
+  display: none !important;
+}
+.tabbrowser-tab[pinned]:not([busy="true"]) .tab-icon-image {
+  display: block !important;
+}
+.tab-label {
+  -moz-box-flex: 1 !important;
+  text-align: center !important;
+}
+
+/*position window controls*/
+#titlebar-buttonbox-container {
+  margin-left: 5px !important;
+  margin-top: 10.5px !important;
+}
+
+/* remove this weird extra separator mozilla tacks on before the page content */
+#navigator-toolbox::after {
+  display: none !important;
+}
+
+#urlbar {
+    /* Place bindings.xml in the same folder as userChrome.css */
+    -moz-binding: url("bindings.xml#urlbar") !important;
+}
+
+/*
+ * Originally from:
+ * http://forums.mozillazine.org/viewtopic.php?p=14404121#p14404121
+ */
+
+#urlbar {
+  position: relative;
+  z-index: 1;
+}
+
+#identity-box:after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: white;
+  opacity: 0.2;
+}
+
+
+/* There is also grantedPermissions, but irrelevant. */
+
+/* about:about */
+#urlbar[pageproxystate='valid'] #identity-box.unknownIdentity:after {
+  background: #ff0039; /* Firefox Red 50 */
+}
+
+/* about:config */
+#urlbar[pageproxystate='valid'] #identity-box.chromeUI:after {
+  background: #0a84ff; /* Firefox Blue 50 */
+}
+
+/* uBlock Origin Dashboard */
+#urlbar[pageproxystate='valid'] #identity-box.extensionPage:after {
+  background: #45a1ff; /* Firefox Blue 40 */
+}
+
+/* https://www.github.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.verifiedIdentity:after{
+  background: #058b00; /* Firefox Green 70 */
+}
+
+/* https://www.google.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.verifiedDomain:after{
+  background: #12bc00; /* Firefox Green 60 */
+}
+
+/* https://mixed-script.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedActiveBlocked:after {
+  background: #30e60b; /* Firefox Green 50 */
+}
+
+/* https://mixed.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContent:after {
+  background: #d7b600; /* Firefox Yellow 60 */
+}
+
+/* https://very.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.mixedDisplayContentLoadedActiveBlocked:after {
+  background: #d7b600; /* Firefox Yellow 60 */
+}
+
+/* https://self-signed.badssl.com/ but add certificate exception */
+#urlbar[pageproxystate='valid'] #identity-box.certUserOverridden:after {
+  background: #ffe900; /* Firefox Yellow 50 */
+}
+
+/* Don't know an example for this */
+#urlbar[pageproxystate='valid'] #identity-box.weakCipher:after {
+  background: #a47f00; /* Firefox Yellow 70 */
+}
+
+/* https://mixed-script.badssl.com/ but disable protection */
+#urlbar[pageproxystate='valid'] #identity-box.mixedActiveContent:after {
+  background: #d70022;  /* Firefox Red 60 */
+}
+
+/* http://http-login.badssl.com/ */
+#urlbar[pageproxystate='valid'] #identity-box.insecureLoginForms:after {
+  background: #a4000f;  /* Firefox Red 70 */
+}
+
+.private-browsing-indicator { display: none !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #urlbar
+{
+  color: rgb(240,240,240) !important;
+  background: rgb(106,106,106) border-box !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #urlbar html|*.urlbar-input::-moz-selection
+{
+  background-color: rgb(109,135,153) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #urlbar-go-button,
+#main-window[privatebrowsingmode=temporary] #urlbar-stop-button,
+#main-window[privatebrowsingmode=temporary] #urlbar-reload-button,
+#main-window[privatebrowsingmode=temporary] #go-button,
+#main-window[privatebrowsingmode=temporary] #stop-button,
+#main-window[privatebrowsingmode=temporary] #reload-button,
+#main-window[privatebrowsingmode=temporary] #nav-bar .urlbar-history-dropmarker
+{
+  -moz-image-region: unset !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #nav-bar .urlbar-history-dropmarker:not([open])
+{
+  box-shadow: unset !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #nav-bar .urlbar-history-dropmarker[open] > .dropmarker-icon
+{
+  filter: brightness(0%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #urlbar .urlbar-input-box::after
+{
+  background: linear-gradient(to left, rgba(106,106,106,1), rgba(106,106,106,0)) 0px 0px / 50px 100% no-repeat, linear-gradient(to bottom, rgb(106,106,106),rgb(106,106,106)) 50px 0px / calc(100% - 50px) 100% no-repeat !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #reader-mode-button
+{
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
+  filter: brightness(175%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #page-report-button
+{
+  filter: contrast(0%) brightness(160%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #page-report-button:hover,
+#main-window[privatebrowsingmode=temporary] #page-report-button:active,
+#main-window[privatebrowsingmode=temporary] #page-report-button[open=true]
+{
+  filter: grayscale(100%) contrast(0%) brightness(195%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #urlbar-go-button > .toolbarbutton-icon,
+#main-window[privatebrowsingmode=temporary] #urlbar-reload-button > .toolbarbutton-icon,
+#main-window[privatebrowsingmode=temporary] #urlbar-stop-button > .toolbarbutton-icon,
+#main-window[privatebrowsingmode=temporary] #go-button > .toolbarbutton-icon,
+#main-window[privatebrowsingmode=temporary] #reload-button > .toolbarbutton-icon,
+#main-window[privatebrowsingmode=temporary] #stop-button > .toolbarbutton-icon,
+#main-window[privatebrowsingmode=temporary] #nav-bar .urlbar-history-dropmarker > .dropmarker-icon
+{
+  filter: brightness(175%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #reader-mode-button:hover,
+#main-window[privatebrowsingmode=temporary] #urlbar-stop-button:hover,
+#main-window[privatebrowsingmode=temporary] #urlbar-reload-button:hover,
+#main-window[privatebrowsingmode=temporary] #urlbar-go-button:hover,
+#main-window[privatebrowsingmode=temporary] #stop-button:hover,
+#main-window[privatebrowsingmode=temporary] #urlbar-reload-button:hover,
+#main-window[privatebrowsingmode=temporary] #urlbar-go-button:hover,
+#main-window[privatebrowsingmode=temporary] #nav-bar .urlbar-history-dropmarker:hover:not([open]) > .dropmarker-icon
+{
+  filter: brightness(210%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #reader-mode-button:hover:active,
+#main-window[privatebrowsingmode=temporary] #reader-mode-button[readeractive]
+{
+  filter: brightness(1000%) invert(100%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] :-moz-any(#tracking-protection-icon,#blocked-permissions-container,#notification-popup-box)
+{
+  filter: brightness(160%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] :-moz-any(#connection-icon,#identity-icon-labels)
+{
+  filter: brightness(140%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #identity-box:hover > #identity-icon:not(.no-hover),
+#main-window[privatebrowsingmode=temporary] #identity-box[open=true] > #identity-icon,
+#main-window[privatebrowsingmode=temporary] #identity-box.grantedPermissions:hover > #identity-icon:not(.no-hover),
+#main-window[privatebrowsingmode=temporary] #identity-box.grantedPermissions[open=true] > #identity-icon,
+#main-window[privatebrowsingmode=temporary] #identity-box:hover > #identity-icon:not(.no-hover) ~ #tracking-protection-icon,
+#main-window[privatebrowsingmode=temporary] #identity-box[open=true] > #tracking-protection-icon,
+#main-window[privatebrowsingmode=temporary] #identity-box:hover > #identity-icon:not(.no-hover) ~ #blocked-permissions-container,
+#main-window[privatebrowsingmode=temporary] #identity-box[open=true] > #blocked-permissions-container,
+#main-window[privatebrowsingmode=temporary] #identity-box:hover > #identity-icon:not(.no-hover) ~ :-moz-any(#connection-icon,#identity-icon-labels),
+#main-window[privatebrowsingmode=temporary] #identity-box[open=true] > :-moz-any(#connection-icon,#identity-icon-labels)
+{
+  filter: brightness(210%) !important;
+}
+
+#main-window[privatebrowsingmode=temporary] #notification-popup-box > .notification-anchor-icon:not(.in-use):hover
+{
+  fill: #D0D0D0;
+}
+
+#PanelUI-menu-button {
+  display: none !important;
+}
+
+#nav-bar .urlbar-history-dropmarker {
+  display: none !important;
+}
+
+#nav-bar .urlbar-page-action {
+  display: none !important;
+}
+
+#urlbar:not([focused]) .urlbar-input-box {
+    text-align: center;
+}
+
+/* Remove New Tab Flash */
+
+@-moz-document url(chrome://browser/content/browser.xul)
+{
+  browser[type="content-primary"], tabbrowser tabpanels, #appcontent > #content
+  {
+    background: #323234 !important;
+  }
+}
