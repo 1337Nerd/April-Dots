@@ -1,0 +1,22 @@
+append-when-occupied = true
+watch-config = true
+remove-empty = true
+renamers = ["classified", "client", "constant"]
+
+[names]
+constant = "  "
+
+[[names.classified]]
+"  " = ["Firefox Developer Edition", "Waterfox"]
+
+[[names.classified]]
+"  " = ["Mate-terminal"]
+
+[[names.classified]]
+"  " = ["Thunar"]
+
+[[names.classified]]
+"  " = ["Gnome-calculator"]
+
+[[names.classified]]
+"  " = ["forge-view-Main"]
