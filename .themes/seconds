@@ -1,0 +1,4 @@
+xrdb -I$HOME ~/.Xresources4
+feh --bg-fill ~/Downloads/tmp.jpg
+pkill polybar; polybar main &
+cp ~/testingseconds.html ~/.themes/startpage.html
