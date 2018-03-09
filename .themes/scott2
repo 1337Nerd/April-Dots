@@ -1,0 +1,4 @@
+xrdb -I$HOME ~/.Xresources3
+feh --bg-fill ~/Downloads/tfo6Z0.jpg
+pkill polybar; polybar main &
+cp ~/testingscott2.html ~/.themes/startpage.html
