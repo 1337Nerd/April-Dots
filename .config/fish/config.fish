@@ -1,6 +1,12 @@
-cat ~/.themes/term &
-
-neofetch
+if string match -q -- "*macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg*" (cat /home/josh/.fehbg)
+	neofetch --source /home/josh/Downloads/arch-violet.png
+else if string match -q -- "*tmp.jpg*" (cat /home/josh/.fehbg)
+	neofetch --source /home/josh/Downloads/arch-tmp.png	
+else if string match -q -- "*tfo6Z0.jpg*" (cat /home/josh/.fehbg)
+	neofetch --source /home/josh/Downloads/arch-yellow.png
+else if string match -q -- "*wallhaven-61574.jpg*" (cat /home/josh/.fehbg)
+	neofetch --source /home/josh/Downloads/arch-blue.png
+end
 
 export EDITOR='vim'
 
