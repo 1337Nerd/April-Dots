@@ -4,14 +4,18 @@ monitor = LVDS-1
 ;background = #E8E8E8
 ;foreground = #000000
 
-background = ${xrdb:background}
-foreground = ${xrdb:foreground}
+;background = ${xrdb:background}
+;foreground = ${xrdb:foreground}
+
+background = ${xrdb:emacs*background}
+foreground = ${xrdb:emacs*foreground}
 
 height = 30
 padding-right = 1
-module-margin = 1
+module-margin-left = 1
 
-font-0 = System San Francisco Display Regular.ttf: SFNS Display:style=Regular:pixelsize=10;1
+;font-0 = System San Francisco Display Regular.ttf: SFNS Display:style=Regular:pixelsize=10;1
+font-0 = Iosevka Term:style=Regular:pixelsize=10;1
 font-1 = Wuncon Siji:style=Regular:pixelsize=10;1
 font-2 = FontAwesome5Free:style=Solid:pixelsize=12;2
 font-3 = Font Awesome 5 Brands:style=Regular:pixelsize=15;3
@@ -33,15 +37,16 @@ ws-icon-default = o
 label-focused = %name%
 ;label-focused-background = #0F72F4
 label-focused-background = ${xrdb:highlight}
+;label-focused-background = ${xrdb:color5}
 label-focused-foreground = ${bar/main.background}
-label-focused-padding = 2
+label-focused-padding = 1
 
 label-occupied = %name%
-label-occupied-padding = 2
+label-occupied-padding = 1
 
 label-urgent = !
 label-urgent-background = #bd2c40
-label-urgent-padding = 2
+label-urgent-padding = 1
 
 label-empty = 
 
@@ -60,7 +65,8 @@ format-prefix = "%{T2} %{T-}"
 type = internal/network
 interface = wlp2s0
 
-format-connected = <ramp-signal> <label-connected>
+;format-connected = <ramp-signal> <label-connected>
+format-connected = <ramp-signal>
 label-connected = %local_ip%
 
 ramp-signal-0 = "%{T2}%{T-}"
@@ -88,13 +94,13 @@ ramp-volume-2 = "%{T2} %{T-}"
 type = internal/battery
 battery = BAT0
 adapter = ADP1
-full-at = 95
+;full-at = 95
 
-format-charging = <animation-charging>
+format-charging = <label-charging> <animation-charging>
 
-format-discharging = <ramp-capacity>
+format-discharging = <label-discharging> <ramp-capacity>
 
-format-full = <ramp-capacity>
+format-full = <label-full> <ramp-capacity>
 
 ramp-capacity-0 = "%{T2}%{T-}"
 ramp-capacity-1 = "%{T2}%{T-}"
