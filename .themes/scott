@@ -1,5 +1,4 @@
 xrdb -I$HOME ~/.Xresources2
 feh --bg-fill ~/Downloads/wallhaven-61574.jpg
 pkill polybar; polybar main &
-cp ~/.themes/scottterm ~/.themes/term
 cp ~/testingscott.html ~/.themes/startpage.html
