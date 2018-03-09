@@ -11,7 +11,19 @@ for RES in $SR; do
   rectangles+="rectangle $CX,$CY $((CX+300)),$((CY-80)) "
 done
 
-if [[ $var = *"testingscott"* ]]; then
+if [[ $var = *"testingscott2"* ]]; then
+	i3lock \
+	  -i /home/josh/Downloads/rsz_tfo6z0.jpg \
+	  --timepos="x-78:h-ch+23" \
+	  --datepos="tx+24:ty+25" \
+	  --clock --datestr "Type password to unlock..." \
+	  --insidecolor=00000000 --ringcolor=ffffffff --line-uses-inside \
+	  --keyhlcolor=d23c3dff --bshlcolor=d23c3dff --separatorcolor=00000000 \
+	  --insidevercolor=fecf4dff --insidewrongcolor=d23c3dff \
+	  --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+292:h-77" \
+	  --radius=20 --ring-width=3 --veriftext="" --wrongtext="" \
+	  --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
+elif [[ $var = *"testingscott"* ]]; then
 	i3lock \
 	  -i /home/josh/Downloads/rsz_wallhaven-61574.jpg \
 	  --timepos="x-78:h-ch+23" \
@@ -23,7 +35,7 @@ if [[ $var = *"testingscott"* ]]; then
 	  --ringvercolor=ffffffff --ringwrongcolor=ffffffff --indpos="x+292:h-77" \
 	  --radius=20 --ring-width=3 --veriftext="" --wrongtext="" \
 	  --textcolor="ffffffff" --timecolor="ffffffff" --datecolor="ffffffff"
-elif [[ $var = *"lasttest"* ]]; then
+else
 	i3lock \
 	  -i /home/josh/Downloads/macos-sierra-wallpaper-macbook\(1\).jpg \
 	  --timepos="x-78:h-ch+23" \
