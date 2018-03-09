@@ -4,6 +4,7 @@
 *foreground:    #000000
 *background:    #e4e4e4
 *highlight:	#0F72F4
+
 ! black
 *.color0:       #000000
 *.color8:       #555753
@@ -51,3 +52,33 @@ rofi.lines: 		  	5
 rofi.font:				SFNS Display 15
 rofi.padding: 			5
 rofi.fixed-num-lines: 	false
+
+URxvt.geometry: 		72x18
+URxvt*letterSpace: 	    0
+URxvt.lineSpace: 		0
+URxvt*internalBorder:   40
+URxvt*externalBorder:   0
+URxvt*depth:            32
+URxvt*saveline:         2000
+URxvt*iso14755:         false
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+URxvt.urlButton:        1
+URxvt*buffered:         false          
+URxvt.urgentOnBell: 	True
+URxvt*keysym.C-Shift-q: command:exit
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+URxvt.font: xft:Iosevka Term:size=11, xft:FontAwesome5Free:size=12, xft:Wuncon Siji:size=11
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+! Xft.rgba: rgb
