@@ -10,7 +10,7 @@ constant = "  "
 "  " = ["Firefox Developer Edition", "Waterfox"]
 
 [[names.classified]]
-"  " = ["Mate-terminal"]
+"  " = ["Mate-terminal", "URxvt"]
 
 [[names.classified]]
 "  " = ["Thunar"]
