@@ -180,3 +180,7 @@ super + shift + s
 # Switch to Scott Pilgrim theme 2
 super + shift + alt + s
 	dash ~/.themes/scott2
+
+# Switch to Seconds theme
+super + shift + a
+	dash ~/.themes/seconds
