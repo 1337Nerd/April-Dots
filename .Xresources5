@@ -1,0 +1,105 @@
+! special
+*.foreground:   #ecdfde
+*.background:   #050303
+*foreground:	#ecdfde
+*background:	#050303
+URxvt*cursorColor:	#ecdfde
+URxvt*borderColor:	[100]#050303
+*highlight:	#F78E81
+
+! Colors 0-15.
+*.color0: #050303
+*color0:  #050303
+*.color1: #E8726D
+*color1:  #E8726D
+*.color2: #F4897C
+*color2:  #F4897C
+*.color3: #8B728F
+*color3:  #8B728F
+*.color4: #AAA4A4
+*color4:  #AAA4A4
+*.color5: #F78E81
+*color5:  #F78E81
+*.color6: #F6B1AE
+*color6:  #F6B1AE
+*.color7: #ecdfde
+*color7:  #ecdfde
+*.color8: #a59c9b
+*color8:  #a59c9b
+*.color9: #E8726D
+*color9:  #E8726D
+*.color10: #F4897C
+*color10:  #F4897C
+*.color11: #8B728F
+*color11:  #8B728F
+*.color12: #AAA4A4
+*color12:  #AAA4A4
+*.color13: #F78E81
+*color13:  #F78E81
+*.color14: #F6B1AE
+*color14:  #F6B1AE
+*.color15: #ecdfde
+*color15:  #ecdfde
+
+! Black color that will not be affected by bold highlighting.
+*.color66: #050303
+*color66:  #050303
+
+! Xclock colors.
+XClock*foreground: #ecdfde
+XClock*background: #050303
+XClock*majorColor:  rgba:ec/df/de/ff
+XClock*minorColor:  rgba:ec/df/de/ff
+XClock*hourColor:   rgba:ec/df/de/ff
+XClock*minuteColor: rgba:ec/df/de/ff
+XClock*secondColor: rgba:ec/df/de/ff
+
+! Set depth to make transparency work.
+URxvt*depth: 32
+
+!############
+!##  rofi  ##
+!############
+
+!                  bg       border   separator
+rofi.color-window: #050303, #050303, #050303
+!                  bg       fg       bg-alt   hl-bg    hl-fg
+rofi.color-normal: #050303, #ecdfde, #050303, #ecdfde, #050303
+rofi.color-active: #050303, #ecdfde, #050303, #ecdfde, #050303
+rofi.color-urgent: #050303, #ecdfde, #050303, #ecdfde, #050303
+
+rofi.lines: 		  	5
+rofi.font:				Iosevka Term 15
+rofi.padding: 			5
+rofi.fixed-num-lines: 	false
+
+URxvt.geometry: 		72x18
+URxvt*letterSpace: 	    0
+URxvt.lineSpace: 		0
+URxvt*internalBorder:   40
+URxvt*externalBorder:   0
+URxvt*depth:            32
+URxvt*saveline:         2000
+URxvt*iso14755:         false
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+URxvt.urlButton:        1
+URxvt*buffered:         false          
+URxvt.urgentOnBell: 	True
+URxvt*keysym.C-Shift-q: command:exit
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+URxvt.font: xft:Iosevka Term:size=11
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+! Xft.rgba: rgb
