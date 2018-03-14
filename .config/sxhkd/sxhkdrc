@@ -4,7 +4,7 @@
 
 # terminal emulator
 super + Return
-	urxvt -e fish
+	urxvt -e zsh
 
 # program launcher
 super + d
@@ -169,6 +169,10 @@ super + f
 Print
 	ffmpeg -loglevel quiet -y -s 1366x768 -f x11grab -i $DISPLAY -vframes 1 ~/Pictures/"$(date)".png
 
-# Switch themes between MacOs, Scott Pilgrim, Scott Pilgrim 2, and Seconds
-super + shift + {m, s, alt + s, a}
-	dash ~/.themes/{mac,scott,scott2,seconds}
+# Switch themes between MacOS, Scott Pilgrim, Scott Pilgrim 2, Seconds, Seconds 2, Arch, and Solar
+#super + shift + {m, s, alt + s, a, alt + a, d, alt + d}
+#	dash ~/.themes/{mac,scott,scott2,seconds,seconds2,arch,solar}
+
+# Change themes
+super + e
+	dash ~/.themes/themechangemenu
