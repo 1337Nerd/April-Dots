@@ -12,3 +12,4 @@ set smartcase
 set hlsearch
 set incsearch
 set number
+set t_Co=8
