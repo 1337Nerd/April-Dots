@@ -15,16 +15,16 @@ bspc config urgent_border_color "#72003e"
 
 xsetroot -cursor_name left_ptr &
 redshift -l 39.866397:-83.074054 &
-feh --bg-fill ~/Downloads/macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg
+dash ~/.themes/mac
 btops &
 polybar main &
 light -S 2 &
 xss-lock -- lock
 
-xrdb -I$HOME ~/.Xresources
+#xrdb -I$HOME ~/.Xresources
 
-source "$HOME/.Xresources"
-bspc config normal_border_color "$color1"
-bspc config active_border_color "$color2"
-bspc config focused_border_color "$color15"
-bspc config presel_border_color "$color1"
+#source "$HOME/.Xresources"
+#bspc config normal_border_color "$color1"
+#bspc config active_border_color "$color2"
+#bspc config focused_border_color "$color15"
+#bspc config presel_border_color "$color1"
