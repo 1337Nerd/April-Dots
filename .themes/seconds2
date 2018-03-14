@@ -1,0 +1,5 @@
+xrdb -I$HOME ~/.Xresources5
+feh --bg-fill ~/Downloads/seconds.png
+~/.themes/themechanger
+pkill -USR1 polybar
+cp ~/testingseconds2.html ~/.themes/startpage.html

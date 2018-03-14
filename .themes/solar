@@ -1,0 +1,5 @@
+xrdb -I$HOME ~/.Xresources7
+feh --bg-fill ~/Downloads/solar.png
+~/.themes/themechanger
+pkill -USR1 polybar
+cp ~/testingsolar.html ~/.themes/startpage.html
