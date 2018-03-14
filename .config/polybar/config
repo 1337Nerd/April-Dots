@@ -35,7 +35,7 @@ enable-scroll = false
 ws-icon-default = o
 
 label-focused = %name%
-;label-focused-background = #0F72F4
+;;label-focused-background = #0F72F4
 label-focused-background = ${xrdb:highlight}
 ;label-focused-background = ${xrdb:color5}
 label-focused-foreground = ${bar/main.background}
