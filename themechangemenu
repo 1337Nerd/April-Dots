@@ -1,0 +1,19 @@
+theme_selection() {
+bgcolor=$(xrdb -query | grep -m 1 background | cut -f 2)
+fgcolor=$(xrdb -query | grep -m 1 foreground | cut -f 2)
+highlight=$(xrdb -query | grep -m 1 highlight | cut -f 2)
+lines=$(expr $(ls -l ~/.Xresources/ | wc -l) - 1)
+ls ~/.Xresources/ | dmenu -l "${lines}" -p 'Select Theme' -nb "${bgcolor}" -nf "${fgcolor}" -sb "${highlight}" -sf "${bgcolor}" -fn 'Iosevka Term-12'
+}
+
+themechoice=$(theme_selection)
+if [ -n "${themechoice}" ]; then
+	echo "${themechoice}"
+	xrdb ~/.Xresources/"${themechoice}"
+	feh --bg-fill ~/Downloads/"${themechoice}".png &
+	~/.themes/themechanger
+	pkill -USR1 polybar &
+	cp ~/testing"${themechoice}".html ~/.themes/startpage.html
+else
+	break
+fi
