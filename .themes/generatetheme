@@ -1,0 +1,60 @@
+#!/bin/dash
+
+read -p "Enter theme name: " answer
+
+cp ~/.cache/wal/colors.Xresources ~/.Xresources/"${answer}"
+sed -i -e 's/emacs\*foreground/*.foreground/g' ~/.Xresources/"${answer}"
+sed -i -e 's/emacs\*background/*.background/g' ~/.Xresources/"${answer}"
+sed -i -e 's/URxvt\*foreground/*foreground/g' ~/.Xresources/"${answer}"
+sed -i -e 's/XTerm\*background/*background/g' ~/.Xresources/"${answer}"
+sed -i -e '6,7d' ~/.Xresources/"${answer}"
+sed -i -e '6d' ~/.Xresources/"${answer}"
+sed -i -e '7d' ~/.Xresources/"${answer}"
+sed -i -e '8,9d' ~/.Xresources/"${answer}"
+
+highlight=$(cat ~/.cache/wal/colors.Xresources | grep -m 1 color5 | tail -c 8)
+
+sed -i -e "8 a *highlight:	$highlight" ~/.Xresources/"${answer}"
+
+echo "
+rofi.font:				Iosevka Term 15
+
+URxvt.geometry: 		72x18
+URxvt*letterSpace: 	    0
+URxvt.lineSpace: 		0
+URxvt*internalBorder:   40
+URxvt*externalBorder:   0
+URxvt*depth:            32
+URxvt*saveline:         2000
+URxvt*iso14755:         false
+URxvt*scrollBar:        false
+URxvt*scrollBar_right:  false
+URxvt.perl-ext-common:  default,clipboard,url-select,keyboard-select
+URxvt.urlLauncher:      firefox
+URxvt.underlineURLs:    true
+URxvt.urlButton:        1
+URxvt*buffered:         false          
+URxvt.urgentOnBell: 	True
+URxvt*keysym.C-Shift-q: command:exit
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! ------------------------------------------------------------------------------
+! Xft Font Configuration
+! ------------------------------------------------------------------------------
+URxvt.font: xft:Iosevka Term:size=11
+Xft.autohint: 0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
+Xft.hinting: 1
+Xft.antialias: 1
+! Xft.rgba: rgb" >> ~/.Xresources/"${answer}"
+
+cp ~/index.html ~/testing"${answer}".html
+sed -i -e "s/#000000/$(cat ~/.Xresources/$answer | grep -m 1 foreground | tail -c 8)/g" ~/testing"${answer}".html
+sed -i -e "s/#729FCF/$(cat ~/.Xresources/$answer | grep -m 1 color12 | tail -c 8)/g" ~/testing"${answer}".html
+sed -i -e "s/#AD7FA8/$(cat ~/.Xresources/$answer | grep -m 1 color13 | tail -c 8)/g" ~/testing"${answer}".html
+sed -i -e "s/#06989A/$(cat ~/.Xresources/$answer | grep -m 1 color6 | tail -c 8)/g" ~/testing"${answer}".html
+sed -i -e "s/#C4A000/$(cat ~/.Xresources/$answer | grep -m 1 color3 | tail -c 8)/g" ~/testing"${answer}".html
+sed -i -e "s/#e4e4e4/$(cat ~/.Xresources/$answer | grep -m 1 background | tail -c 8)/g" ~/testing"${answer}".html
+sed -i -e "s/lasttest.png/testing$answer.png/g" ~/testing"${answer}".html
