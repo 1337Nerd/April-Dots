@@ -1,0 +1,19 @@
+#!/bin/bash
+
+rectangles=" "
+
+SR=$(xrandr --query | grep ' connected' | grep -o '[0-9][0-9]*x[0-9][0-9]*[^ ]*')
+for RES in $SR; do
+	SRA=(${RES//[x+]/ })
+	CX=$((${SRA[2]} + 37))
+	CY=$((${SRA[1]} - 37))
+	rectangles="rectangle $CX,$CY $((CX+300)),$((CY-80)) "${rectangles}
+done
+
+TMPBG=$(cat ~/.fehbg)
+TMPBG=$(echo ${TMPBG} | sed -e "s|#\!/bin/sh||g")
+TMPBG=$(echo ${TMPBG} | sed -e "s|'||g")
+TMPBG=$(echo ${TMPBG} | sed -e "s|feh --bg-fill||g")
+
+cp $TMPBG /tmp/screen
+convert /tmp/screen -resize 1920x1080 -draw "fill black fill-opacity 0.4 $rectangles" /tmp/screen
