@@ -5,27 +5,17 @@ HISTSIZE=1000
 SAVEHIST=1000
 
 var=$(cat /home/josh/.fehbg)
+var=$(echo ${var} | sed -e "s|#\!/bin/sh||g")
+var=$(echo ${var} | sed -e "s|'||g")
+var=$(echo ${var} | sed -e "s|feh --bg-fill||g")
+var=$(echo ${var} | sed -e "s|$HOME/Downloads/||g")
+var=$(echo ${var} | sed -e "/^$/d")
+var=$(echo ${var} | sed -e "s| ||g")
 
 PS1="%F{403434}%------------------------------------------------------------
 %F{087DC0}%~ %F{847BE4}» "
 
-if [[ $var = *"macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-violet.png
-elif [[ $var = *"tmp.jpg"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-tmp.png	
-elif [[ $var = *"seconds.png"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-pink.png	
-elif [[ $var = *"tfo6Z0.jpg"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-yellow.png	
-elif [[ $var = *"wallhaven-61574.jpg"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-blue.png	
-elif [[ $var = *"6Pca5oR.png"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-purple.png	
-elif [[ $var = *"solar.png"* ]]; then
-	neofetch --source /home/josh/Downloads/arch-orange.png	
-else
-	neofetch
-fi 	
+neofetch --size 362 --w3m ~/Downloads/neofetch/arch-"${var}"
 
 export EDITOR='vim'
 
@@ -65,3 +55,4 @@ alias update='pacaur -Syu --noconfirm; sudo pacman -Rns $(sudo pacman -Qttdq) --
 alias moreupdate='pacaur -Syu --noconfirm; sudo pacman -Rns $(sudo pacman -Qttdq) --noconfirm; pacaur -Scc; rm -rf /home/josh/.cache/*'
 alias pacman='sudo pacman'
 alias pacaur -Rns='sudo pacman -Rns'
+unsetopt beep
