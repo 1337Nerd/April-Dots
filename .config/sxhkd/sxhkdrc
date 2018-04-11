@@ -8,7 +8,7 @@ super + Return
 
 # program launcher
 super + d
-	rofi -show run -disable-history -separator-style none -hide-scrollbar
+	rofi -show run -disable-history -padding 5 -hide-scrollbar -lines 5 -color-normal "$(xrdb -query | grep -m 1 background | cut -f 2), $(xrdb -query | grep -m 1 foreground | cut -f 2), $(xrdb -query | grep -m 1 background | cut -f 2), $(xrdb -query | grep -m 1 highlight | cut -f 2), $(xrdb -query | grep -m 1 background | cut -f 2)" -color-window "$(xrdb -query | grep -m 1 background | cut -f 2), $(xrdb -query | grep -m 1 background | cut -f 2), $(xrdb -query | grep -m 1 background | cut -f 2)"
 
 # make sxhkd reload its configuration files:
 super + Escape
@@ -159,7 +159,7 @@ XF86MonBrightnessDown
 
 # Start Forge
 super + shift + f
-	/home/josh/forge.sh
+	/home/josh/Forge/forge.sh
 
 # Start Firefox
 super + f
@@ -167,11 +167,7 @@ super + f
 
 # Screenshot
 Print
-	ffmpeg -loglevel quiet -y -s 1366x768 -f x11grab -i $DISPLAY -vframes 1 ~/Pictures/"$(date)".png
-
-# Switch themes between MacOS, Scott Pilgrim, Scott Pilgrim 2, Seconds, Seconds 2, Arch, and Solar
-#super + shift + {m, s, alt + s, a, alt + a, d, alt + d}
-#	dash ~/.themes/{mac,scott,scott2,seconds,seconds2,arch,solar}
+	ffmpeg -loglevel quiet -y -s 1920x1080 -f x11grab -i $DISPLAY -vframes 1 ~/Pictures/"$(date)".png
 
 # Change themes
 super + e
