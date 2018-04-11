@@ -1,5 +1,0 @@
-xrdb -I$HOME ~/.Xresources
-feh --bg-fill ~/Downloads/macOS-Sierra-Wallpaper-Macbook-Wallpaper.jpg
-~/.themes/themechanger
-pkill -USR1 polybar
-cp ~/index.html ~/.themes/startpage.html
