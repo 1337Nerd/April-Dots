@@ -1,5 +1,0 @@
-xrdb -I$HOME ~/.Xresources4
-feh --bg-fill ~/Downloads/tmp.jpg
-~/.themes/themechanger
-pkill -USR1 polybar
-cp ~/testingseconds.html ~/.themes/startpage.html
