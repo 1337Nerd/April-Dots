@@ -1,5 +1,0 @@
-xrdb -I$HOME ~/.Xresources2
-feh --bg-fill ~/Downloads/wallhaven-61574.jpg
-~/.themes/themechanger
-pkill -USR1 polybar
-cp ~/testingscott.html ~/.themes/startpage.html
