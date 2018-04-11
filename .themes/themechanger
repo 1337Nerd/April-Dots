@@ -1,0 +1,15 @@
+#!/bin/dash
+
+sequences=""
+for i in $(seq 0 15); do
+  sequences="\033]4;${i};$(xrdb -query | grep -m 1 "color${i}" | cut -f 2)\007"${sequences}
+done
+sequences="\033]10;$(xrdb -query | grep -m 1 foreground | cut -f 2)\007"${sequences}
+sequences="\033]11;$(xrdb -query | grep -m 1 background | cut -f 2)\007"${sequences}
+sequences="\033]12;$(xrdb -query | grep -m 1 foreground | cut -f 2)\007"${sequences}
+sequences="\033]17;$(xrdb -query | grep -m 1 highlight | cut -f 2)\007"${sequences}
+sequences="\033]708;$(xrdb -query | xrdb -query | grep -m 1 background | cut -f 2)\007"${sequences}
+
+for term in /dev/pts/[0-9]*; do
+  printf "%b" "${sequences}" > "${term}" &
+done
