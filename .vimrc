@@ -13,3 +13,4 @@ set hlsearch
 set incsearch
 set number
 set t_Co=8
+set noeb vb t_vb=
