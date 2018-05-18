@@ -14,3 +14,7 @@ And of course, firefox ricing done with the help of all the great people at <a h
 To switch themes, use keybinding Super + E to open the theme menu. This will change the <ul>Wallpaper</ul> <ul>System Colorscheme</ul> <ul>Polybar Colorscheme</ul> <ul>Terminal Colorscheme</ul> <ul>Firefox New Tab Page</ul>
 
 To generate a new theme, use ~/.themes/generatetheme. This will take a pywal Xresources file and add it to a directory named ~/.Xresources. This will also generate a startpage and the image to go along with it, as well as an arch logo for neofetch.
+
+To recreate any themes, I have all the files on here (instead of uplodaing the wallpaper, xresources, startpage, and neofetch image for each) needed to generate a new theme and the wallpapers I used.
+
+Note: When creating themes, the clock may blend in with the background image. To still have the colors match the theme, delete the line in #clock that says "color:". This will change the color from the terminal background color to the text color.
