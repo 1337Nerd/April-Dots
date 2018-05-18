@@ -2,8 +2,7 @@ theme_selection() {
 bgcolor=$(xrdb -query | grep -m 1 background | cut -f 2)
 fgcolor=$(xrdb -query | grep -m 1 foreground | cut -f 2)
 highlight=$(xrdb -query | grep -m 1 highlight | cut -f 2)
-lines=$(expr $(ls -l ~/.Xresources/ | wc -l) - 1)
-ls ~/.Xresources/ | dmenu -l "${lines}" -p 'Select Theme' -nb "${bgcolor}" -nf "${fgcolor}" -sb "${highlight}" -sf "${bgcolor}" -fn 'Iosevka Term-12'
+ls ~/.Xresources/ | dmenu -l 12 -p 'Select Theme' -nb "${bgcolor}" -nf "${fgcolor}" -sb "${highlight}" -sf "${bgcolor}" -fn 'Iosevka Term-12'
 }
 
 gapcrop=$(bspc config window_gap)
