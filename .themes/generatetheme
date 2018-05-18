@@ -61,13 +61,11 @@ sed -i -e "s/#e4e4e4/$(cat ~/.cache/wal/colors.Xresources | grep -m 1 background
 sed -i -e "s/lasttest/testing${answer}/g" ~/testing"${answer}".html
 
 path=$(cat ~/.fehbg)
-path=$(echo ${path} | sed -e "s|#\!/bin/sh||g")
-path=$(echo ${path} | sed -e "s|'||g")
-path=$(echo ${path} | sed -e "s|feh --bg-fill||g")
+path=$(echo ${path} | sed -e "s|#\!/bin/sh||g" | sed -e "s|'||g" | sed -e "s|feh --bg-fill||g")
 
 mv $path ~/Downloads/"${answer}".png
-convert ~/Downloads/"${answer}".png -resize 1920x1080 -crop 1846x909+37+134 ~/Pictures/testing"${answer}".png
+convert ~/Downloads/"${answer}".png -resize 1920x1080 -crop 1850x913+35+132 ~/Pictures/testing"${answer}".png
 
-cp ~/Downloads/arch-mac.png ~/Desktop/testingarch.png
+cp ~/Downloads/neofetch/arch-mac.png ~/Desktop/testingarch.png
 mogrify -format png -fill "$(cat ~/.cache/wal/colors.Xresources | grep -m 1 color6 | tail -c 8)" -opaque "#06989a" ~/Desktop/testingarch.png
 mv ~/Desktop/testingarch.png ~/Downloads/neofetch/arch-"${answer}".png
