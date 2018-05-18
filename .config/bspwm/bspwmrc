@@ -2,22 +2,22 @@
 
 sxhkd &
 
-bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+bspc monitor -d 1 2 3 4 5 6 7 8 9
 
 bspc config border_width         0
-bspc config window_gap          37
+bspc config window_gap          35
 
 bspc config split_ratio          0.5
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
-bspc config click_to_focus       true
-bspc config urgent_border_color "#72003e"
 
 xsetroot -cursor_name left_ptr &
 redshift -l 39.866397:-83.074054 &
-xrdb ~/.Xresources/secondsun
-feh --bg-fill ~/Downloads/secondsun.png
+var=$(cat /home/josh/.fehbg | sed -e "s|#\!/bin/sh||g" | sed -e "s|'||g" | sed -e "s|feh --bg-fill||g" | sed -e "s|$HOME/Downloads/||g" | sed -e "/^$/d" | sed -e "s| ||g" | sed -e "s|.png||g")
+xrdb ~/.Xresources/"${var}"
+feh --bg-fill ~/Downloads/"${var}".png
 btops &
 polybar main &
 light -S 5 &
+convert ~/Downloads/"${var}".png -resize 1920x1080 -crop 1850x913+35+132 ~/Pictures/testing"${var}".png
 xss-lock -- lock
