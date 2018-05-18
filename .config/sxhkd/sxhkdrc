@@ -82,8 +82,8 @@ super + {o,i}
 	bspc wm -h on
 
 # focus or send to the given desktop
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,node -d} '^{1-9,10}'
+super + {_,shift + }{1-9}
+	bspc {desktop -f,node -d} '^{1-9}'
 
 #
 # preselect
@@ -119,7 +119,11 @@ super + {equal,minus}
 
 # reset gap size
 super + shift + equal
-	bspc config window_gap 37
+	bspc config window_gap 35
+
+# set pseudo-fullscreen
+super + 0
+	bspc config window_gap 0
 
 # contract a window by moving one of its side inward
 super + alt + shift + {h,j,k,l}
@@ -172,3 +176,11 @@ Print
 # Change themes
 super + e
 	dash ~/.themes/themechangemenu
+
+# Disable touchpad
+super + r
+	xinput disable "SynPS/2 Synaptics TouchPad"
+
+# Enable touchpad
+super + alt + r
+	xinput enable "SynPS/2 Synaptics TouchPad"
