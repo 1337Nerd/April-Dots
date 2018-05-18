@@ -11,11 +11,6 @@ ygap=$((gapcrop + 97))
 xres=$((1920 - (gapcrop + gapcrop)))
 yres=$((1080 - (97 + gapcrop + gapcrop)))
 
-echo $xres
-echo $yres
-echo $gapcrop
-echo $ygap
-
 themechoice=$(theme_selection)
 if [ -n "${themechoice}" ]; then
 	xrdb ~/.Xresources/"${themechoice}"
