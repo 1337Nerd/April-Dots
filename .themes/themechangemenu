@@ -6,14 +6,25 @@ lines=$(expr $(ls -l ~/.Xresources/ | wc -l) - 1)
 ls ~/.Xresources/ | dmenu -l "${lines}" -p 'Select Theme' -nb "${bgcolor}" -nf "${fgcolor}" -sb "${highlight}" -sf "${bgcolor}" -fn 'Iosevka Term-12'
 }
 
+gapcrop=$(bspc config window_gap)
+ygap=$((gapcrop + 97))
+xres=$((1920 - (gapcrop + gapcrop)))
+yres=$((1080 - (97 + gapcrop + gapcrop)))
+
+echo $xres
+echo $yres
+echo $gapcrop
+echo $ygap
+
 themechoice=$(theme_selection)
 if [ -n "${themechoice}" ]; then
 	xrdb ~/.Xresources/"${themechoice}"
 	feh --bg-fill ~/Downloads/"${themechoice}".png
-	bash ~/.themes/makelock &
+	~/.themes/makelock &
 	~/.themes/themechanger
 	pkill -USR1 polybar &
 	cp ~/testing"${themechoice}".html ~/.themes/startpage.html
+	convert ~/Downloads/"${themechoice}".png -resize 1920x1080 -crop "${xres}"x"${yres}"+"${gapcrop}"+"${ygap}" ~/Pictures/testing"${themechoice}".png
 else
 	break
 fi
